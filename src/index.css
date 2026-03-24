@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Styles ─────────────────────────────────────────── */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0a0e1a;
+  color: #e2e8f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a3050;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4070;
+}
+
+/* ─── Glassmorphism Card ────────────────────────────────────── */
+
+.glass-card {
+  background: rgba(26, 31, 53, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(42, 48, 80, 0.5);
+  border-radius: 16px;
+}
+
+.glass-card-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ─── Glow Effects ──────────────────────────────────────────── */
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 60px rgba(0, 240, 255, 0.1);
+}
+
+.glow-magenta {
+  box-shadow: 0 0 20px rgba(255, 0, 170, 0.3), 0 0 60px rgba(255, 0, 170, 0.1);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 60px rgba(0, 255, 136, 0.1);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.text-glow-magenta {
+  text-shadow: 0 0 20px rgba(255, 0, 170, 0.5);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+
+.btn-primary {
+  @apply font-display font-bold tracking-wider uppercase px-8 py-3 rounded-xl
+         bg-gradient-to-r from-arena-cyan to-blue-500 text-arena-bg
+         transition-all duration-300 hover:scale-105 active:scale-95;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
+}
+
+.btn-secondary {
+  @apply font-display font-bold tracking-wider uppercase px-8 py-3 rounded-xl
+         bg-gradient-to-r from-arena-magenta to-arena-purple text-white
+         transition-all duration-300 hover:scale-105 active:scale-95;
+  box-shadow: 0 0 20px rgba(255, 0, 170, 0.3);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 0 40px rgba(255, 0, 170, 0.5);
+}
+
+/* ─── Particle Background ───────────────────────────────────── */
+
+.particle-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(0, 240, 255, 0.3);
+  border-radius: 50%;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ─── Answer Buttons ────────────────────────────────────────── */
+
+.answer-btn {
+  @apply w-full text-left p-4 rounded-xl font-semibold text-lg
+         transition-all duration-200 border-2 active:scale-95;
+}
+
+.answer-btn-0 {
+  @apply bg-red-500/20 border-red-500/40 hover:bg-red-500/30 hover:border-red-500;
+}
+.answer-btn-1 {
+  @apply bg-blue-500/20 border-blue-500/40 hover:bg-blue-500/30 hover:border-blue-500;
+}
+.answer-btn-2 {
+  @apply bg-amber-500/20 border-amber-500/40 hover:bg-amber-500/30 hover:border-amber-500;
+}
+.answer-btn-3 {
+  @apply bg-green-500/20 border-green-500/40 hover:bg-green-500/30 hover:border-green-500;
+}
+
+.answer-correct {
+  @apply bg-green-500/30 border-green-500 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.answer-wrong {
+  @apply bg-red-500/30 border-red-500 !important;
+  opacity: 0.6;
+}
+
+/* ─── Timer ─────────────────────────────────────────────────── */
+
+.timer-ring {
+  transition: stroke-dashoffset 1s linear;
+}
+
+/* ─── Leaderboard ───────────────────────────────────────────── */
+
+.leaderboard-row {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.podium-gold {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.1));
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.podium-silver {
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(169, 169, 169, 0.1));
+  border-color: rgba(192, 192, 192, 0.5);
+}
+
+.podium-bronze {
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.2), rgba(184, 115, 51, 0.1));
+  border-color: rgba(205, 127, 50, 0.5);
+}
+
+/* ─── Mobile Optimization ───────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .btn-primary, .btn-secondary {
+    @apply px-5 py-2.5 text-sm;
+  }
+
+  .answer-btn {
+    @apply p-3 text-base;
+  }
+}
+
+/* ─── Selection ─────────────────────────────────────────────── */
+
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: white;
+}
