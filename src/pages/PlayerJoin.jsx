@@ -105,11 +105,11 @@ export default function PlayerJoin() {
           <div className="inline-flex items-center gap-3 mb-3">
             <Gamepad2 className="w-10 h-10 text-arena-cyan" />
             <h1 className="font-display text-3xl sm:text-4xl font-black text-white text-glow-cyan">
-              GAME
+              GAMELIMINALS
             </h1>
           </div>
           <h2 className="font-display text-xl sm:text-2xl font-bold bg-gradient-to-r from-arena-cyan to-arena-magenta bg-clip-text text-transparent">
-            LIMINALS
+            PLAYERS TO CREATORS
           </h2>
           <p className="text-gray-400 mt-2 text-sm">Enter the arena. Prove your knowledge.</p>
         </div>
